@@ -98,6 +98,7 @@ const spots = [{
         button: 'hayMarketBtn'
     }
 ];
+let visible = false;
 
 $(document).ready(generateCards());
 /*{
@@ -169,12 +170,16 @@ function generateCards() {
 /*Toggle hiden text*/
 $("button").on("click", function() {
     let id = this.id.slice(0, this.id.length - 3);
-    $(`#${id}`).toggle("slow");
-    if (document.getElementById(`${this.id}`).innerText == 'Show more') {
+
+    if (!visible) {
         document.getElementById(`${this.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
-    } else {
+        $(`#${id}`).toggle("slow");
+        visible = true;
+    } else if (visible) {
         document.getElementById(`${this.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
+        $(`#${id}`).toggle("slow");
+        visible = false;
     }
     console.log(id);
-    console.log(att);
+
 });
