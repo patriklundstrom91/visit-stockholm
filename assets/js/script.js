@@ -9,7 +9,9 @@ const spots = [{
         address: 'Slottsbacken 1, Old Town',
         type: 'indoor',
         category: 'museum',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'royalPalace',
+        button: 'royalPalaceBtn'
     },
     {
         name: 'City Hall',
@@ -21,7 +23,9 @@ const spots = [{
         address: 'Hantverkargatan 1, Stockholm',
         type: 'indoor',
         category: 'museum',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'cityHall',
+        button: 'cityHallBtn'
     },
     {
         name: 'Royal Opera',
@@ -33,7 +37,9 @@ const spots = [{
         address: 'Gustav Adolfs torg 2, Stockholm',
         type: 'indoor',
         category: 'shows',
-        familyFriendly: false
+        familyFriendly: false,
+        id: 'royalOpera',
+        button: 'royalOperaBtn'
     },
     {
         name: 'Gröna Lund',
@@ -45,7 +51,9 @@ const spots = [{
         address: 'Lilla Allmänna Gränd 9, Stockholm',
         type: 'outdoor',
         category: 'parks',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'gronaLund',
+        button: 'gronaLundBtn'
     },
     {
         name: 'ABBA the Museum',
@@ -57,7 +65,9 @@ const spots = [{
         address: 'Djurgårdsvägen 68, Stockholm',
         type: 'indoor',
         category: 'museum',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'abba',
+        button: 'abbaBtn'
     },
     {
         name: 'Old Town',
@@ -69,7 +79,9 @@ const spots = [{
         address: 'Old Town, Stockholm',
         type: 'outdoor',
         category: 'parks',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'oldTown',
+        button: 'oldTownBtn'
     },
     {
         name: `Haymarket`,
@@ -81,7 +93,9 @@ const spots = [{
         address: 'Hötorget, Stockholm',
         type: 'outdoor',
         category: 'parks',
-        familyFriendly: true
+        familyFriendly: true,
+        id: 'hayMarket',
+        button: 'hayMarketBtn'
     }
 ];
 
@@ -94,7 +108,8 @@ $(document).ready(generateCards());
 });
 */
 function generateCards() {
-    let width = screen.width;
+    let width = window.innerWidth;
+    console.log(width);
     if (width <= 768) {
         for (spot of spots) {
             document.getElementById("content").innerHTML += `<div class="card col-12">
@@ -102,7 +117,11 @@ function generateCards() {
             <div class="card-body">
                 <h5 class="card-title">${spot.name}</h5>
                 <p class="card-text">${spot.text}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <button id="${spot.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+                <div id="${spot.id}" class="hide">
+                <p class="card-text"><small class="text-body-secondary">Opening hours: ${spot.open}<br>Price: ${spot.price}<br>Address: ${spot.address}</small></p>
+                <a href="#" class="btn btn-primary">Get there</a>
+                </div>
             </div>
             </div>`;
         }
@@ -146,3 +165,16 @@ function generateCards() {
         }
     }
 };
+
+/*Toggle hiden text*/
+$("button").on("click", function() {
+    let id = this.id.slice(0, this.id.length - 3);
+    $(`#${id}`).toggle("slow");
+    if (document.getElementById(`${this.id}`).innerText == 'Show more') {
+        document.getElementById(`${this.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
+    } else {
+        document.getElementById(`${this.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
+    }
+    console.log(id);
+    console.log(att);
+});

@@ -61,3 +61,10 @@ main {
 #footer {
     background-color: var(--primary-color);
 }
+
+
+/*Hide elements/text*/
+
+.hide {
+    display: none;
+}
