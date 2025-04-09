@@ -129,7 +129,7 @@ function generateCards() {
 
     } else if (width > 768 && width <= 992) {
         for (spot of spots) {
-            document.getElementById("content").innerHTML += `<div class="card mb-3" style="max-width: 540px;">
+            document.getElementById("content").innerHTML += `<div class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
                  <img src="${spot.img}" class="img-fluid rounded-start" alt="${spot.alt}">
@@ -138,7 +138,12 @@ function generateCards() {
                  <div class="card-body">
                    <h5 class="card-title">${spot.name}</h5>
                    <p class="card-text">${spot.text}</p>
-                   <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                   <button id="${spot.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+                    <div id="${spot.id}" class="hide">
+                    <p class="card-text"><small class="text-body-secondary">Opening hours: ${spot.open}<br>Price: ${spot.price}<br>Address: ${spot.address}</small></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5745.672261870116!2d18.069149842216365!3d59.326821474718805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d587e4c4a01%3A0xbdf97a9648763e36!2sKungliga%20slottet!5e1!3m2!1ssv!2sse!4v1744190854519!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="#" class="btn btn-primary">Get there</a>
+                    </div>
                  </div>
                </div>
               </div>

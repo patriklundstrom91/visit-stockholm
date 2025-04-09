@@ -18,10 +18,6 @@ body {
     background-color: var(--primary-background);
 }
 
-main {
-    margin-top: 66px;
-}
-
 
 /*Navbar*/
 
@@ -56,6 +52,14 @@ main {
 }
 
 
+/*Filter-field*/
+
+#filter {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
 /*Footer*/
 
 #footer {
@@ -67,4 +71,8 @@ main {
 
 .hide {
     display: none;
+}
+
+#filter p {
+    margin-bottom: 0px;
 }
