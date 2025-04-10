@@ -151,8 +151,6 @@ document.getElementById("weatherBtn").addEventListener("click", weather);
 document.getElementById("spotsBtn").addEventListener("click", toggleToContent);
 
 
-
-
 /**
  * Live filter function that updates the the content shown
  */
@@ -203,7 +201,7 @@ function generateCards(items) {
     // Clear content of previus result
     document.getElementById("content").innerHTML = "";
     let width = window.innerWidth;
-    console.log(width);
+
     if (width <= 768) {
         for (item of items) {
             document.getElementById("content").innerHTML += `<div class="card col-12">
@@ -267,12 +265,10 @@ function generateCards(items) {
 };
 
 //Toggle hiden text
-
 document.getElementById("content").addEventListener("click", function(event) {
     if (event.target.tagName == "BUTTON") {
-        console.log("in toggle function");
         let id = event.target.id.slice(0, event.target.id.length - 3);
-        console.log(id);
+
         if (!visible) {
             document.getElementById(`${event.target.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
             $(`#${id}`).toggle("slow");
@@ -282,11 +278,12 @@ document.getElementById("content").addEventListener("click", function(event) {
             $(`#${id}`).toggle("slow");
             visible = false;
         }
-        console.log(id);
     }
 });
 
-// Weather API with open-meteo.com
+/**
+ * Weather function that hide spots content div and shows weather div, API for weather with open-meteo.com
+ */
 async function weather() {
 
     const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin';
@@ -297,7 +294,9 @@ async function weather() {
     document.getElementById("weather").classList.remove("hide");
 }
 
-//Toggle back to content and tourist spots div after weather
+/**
+ * Toggle back to content and tourist spots div after weather div
+ */
 function toggleToContent() {
     document.getElementById("weather").classList.add("hide");
     document.getElementById("filter").classList.remove("hide");
