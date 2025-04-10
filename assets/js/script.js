@@ -139,6 +139,12 @@ document.getElementById("outdoor").addEventListener("click", filter);
 document.getElementById("familyFriendly").addEventListener("click", filter);
 document.getElementById("free").addEventListener("click", filter);
 
+//Eventlistener for weather
+document.getElementById("weatherBtn").addEventListener("click", weather);
+
+//Eventlistener for back to spots
+document.getElementById("spotsBtn").addEventListener("click", toggleToContent);
+
 //Live filter that updates the the content shown
 function filter() {
     console.log('in function filter');
@@ -720,7 +726,7 @@ function generateCards(items) {
 
 //Toggle hiden text
 document.getElementById("content").addEventListener("click", function(event) {
-    if (event.target.tagName === "button") {
+    if (event.target.tagName == "button") {
         console.log("in toggle function");
         let id = event.target.id.slice(0, event.target.id.length - 3);
         console.log(id);
@@ -736,3 +742,22 @@ document.getElementById("content").addEventListener("click", function(event) {
         console.log(id);
     }
 });
+
+// Weather API with open-meteo.com
+async function weather() {
+
+    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin';
+    //const weatherData = await fetch(weatherAPI);
+
+    document.getElementById("content").classList.add("hide");
+    document.getElementById("filter").classList.add("hide");
+    document.getElementById("weather").classList.remove("hide");
+}
+
+//Toggle back to content and tourist spots div after weather
+function toggleToContent() {
+    document.getElementById("weather").classList.add("hide");
+    document.getElementById("filter").classList.remove("hide");
+    document.getElementById("content").classList.remove("hide");
+
+}
