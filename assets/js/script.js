@@ -358,6 +358,30 @@ function filter() {
                 console.log(spot.name);
             }
         }
+    } else if (document.getElementById("parks").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
+        console.log('parks + familyFrienly+free');
+        for (spot of spots) {
+            if (spot.category == 'Parks' && spot.familyFriendly == true && spot.price == 'Free') {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
+    } else if (document.getElementById("parks").checked == true && document.getElementById("familyFriendly").checked == true) {
+        console.log('parks + familyFrienly');
+        for (spot of spots) {
+            if (spot.category == 'Parks' && spot.familyFriendly == true) {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
+    } else if (document.getElementById("parks").checked == true && document.getElementById("free").checked == true) {
+        console.log('parks +free');
+        for (spot of spots) {
+            if (spot.category == 'Parks' && spot.price == 'Free') {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
     } else if (document.getElementById("parks").checked == true) {
         console.log('only parks');
         for (spot of spots) {
@@ -458,6 +482,30 @@ function filter() {
         console.log('all but parks, indoor, familyFriendly, free');
         for (spot of spots) {
             if (spot.category == 'Museum' && spot.type == 'Outdoor') {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
+    } else if (document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
+        console.log('museums+familyFriendly+free');
+        for (spot of spots) {
+            if (spot.category == 'Museum' && spot.familyFriendly == true && spot.price == 'Free') {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
+    } else if (document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true) {
+        console.log('museums+familyFriendly');
+        for (spot of spots) {
+            if (spot.category == 'Museum' && spot.familyFriendly == true) {
+                array.push(spot);
+                console.log(spot.name);
+            }
+        }
+    } else if (document.getElementById("museums").checked == true && document.getElementById("free").checked == true) {
+        console.log('museums+free');
+        for (spot of spots) {
+            if (spot.category == 'Museum' && spot.price == 'Free') {
                 array.push(spot);
                 console.log(spot.name);
             }
