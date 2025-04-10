@@ -656,7 +656,11 @@ function checkResult(array) {
 }
 
 
-//Function to generate code for the cards containing every spot, different cards are used depening on screen size
+
+/**
+ * Function to generate code for the cards containing every spot, different cards are used depening on screen size
+ * @param {*} items 
+ */
 function generateCards(items) {
     // Clear content of previus result
     document.getElementById("content").innerHTML = "";
@@ -725,8 +729,9 @@ function generateCards(items) {
 };
 
 //Toggle hiden text
+
 document.getElementById("content").addEventListener("click", function(event) {
-    if (event.target.tagName == "button") {
+    if (event.target.tagName == "BUTTON") {
         console.log("in toggle function");
         let id = event.target.id.slice(0, event.target.id.length - 3);
         console.log(id);
