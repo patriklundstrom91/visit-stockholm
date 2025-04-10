@@ -129,15 +129,20 @@ const spots = [{
 ];
 let visible = false;
 //Generate all spots when open site
-$(document).ready(generateCards(spots));
+$(document).ready(() => generateCards(spots));
 
-//Eventlistener for filter
+/*//Eventlistener for filter
 document.getElementById("parks").addEventListener("click", filter);
 document.getElementById("museums").addEventListener("click", filter);
 document.getElementById("indoor").addEventListener("click", filter);
 document.getElementById("outdoor").addEventListener("click", filter);
 document.getElementById("familyFriendly").addEventListener("click", filter);
-document.getElementById("free").addEventListener("click", filter);
+document.getElementById("free").addEventListener("click", filter);*/
+
+//Add event listeners for all filters
+["parks", "museums", "indoor", "outdoor", "familyFriendly", "free"].forEach(id => {
+    document.getElementById(id).addEventListener("change", filter);
+});
 
 //Eventlistener for weather
 document.getElementById("weatherBtn").addEventListener("click", weather);
@@ -145,509 +150,42 @@ document.getElementById("weatherBtn").addEventListener("click", weather);
 //Eventlistener for back to spots
 document.getElementById("spotsBtn").addEventListener("click", toggleToContent);
 
-//Live filter that updates the the content shown
-function filter() {
-    console.log('in function filter');
-    let keys = [];
-    let array = [];
-    if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all checked');
-        for (spot of spots) {
-            if (spot.price == 'Free' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('inside all but free checked');
-        for (spot of spots) {
-            if (spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all but familyFriendly checked');
-        for (spot of spots) {
-            if (spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('inside all but familyFriendly and free checked, so shows all');
-        array = spots;
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all but outdoor checked');
-        for (spot of spots) {
-            if (spot.price == 'Free' && spot.familyFriendly == true && spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('inside all but outdoor and free checked');
-        for (spot of spots) {
-            if (spot.familyFriendly == true && spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all but outdoor and familyFriendly checked');
-        for (spot of spots) {
-            if (spot.price == 'Free' && spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true) {
-        console.log('inside all but outdoor and familyFriendly and free checked');
-        for (spot of spots) {
-            if (spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all but indoor');
-        for (spot of spots) {
-            if (spot.price == 'Free' && spot.familyFriendly == true && spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('inside all but indoor and free');
-        for (spot of spots) {
-            if (spot.familyFriendly == true && spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('inside all but indoor and familyFriendly');
-        for (spot of spots) {
-            if (spot.price == 'Free' && spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('inside all but indoor and familyFriendly and free');
-        for (spot of spots) {
-            if (spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but indoor and outdoor');
-        for (spot of spots) {
-            if (spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but indoor, outdoor and free');
-        for (spot of spots) {
-            if (spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but indoor, outdoor and familyFriendly');
-        for (spot of spots) {
-            if (spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("museums").checked == true) {
-        console.log('all but indoor, outdoor, familyFriendly and free, shows all');
-        array = spots;
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but museums and free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums and familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('all but museums, familyFriendly and free');
-        for (spot of spots) {
-            if (spot.category == 'Parks') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums, outdoor');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Indoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but museums, outdoor, free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Indoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums, outdoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Indoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("indoor").checked == true) {
-        console.log('all but museums, outdoor, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums, indoor');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Outdoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but museums, indoor, free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Outdoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but museums, indoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Outdoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('all but museums, indoor, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('parks + familyFrienly+free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('parks + familyFrienly');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true && document.getElementById("free").checked == true) {
-        console.log('parks +free');
-        for (spot of spots) {
-            if (spot.category == 'Parks' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("parks").checked == true) {
-        console.log('only parks');
-        for (spot of spots) {
-            if (spot.category == 'Parks') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but parks, free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('all but parks, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.category == 'Museum') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, outdoor');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Indoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but parks, outdoor, free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Indoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, outdoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Indoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("indoor").checked == true) {
-        console.log('all but parks, outdoor, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, indoor');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Outdoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but parks, indoor,free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Outdoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, indoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Outdoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('all but parks, indoor, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('museums+familyFriendly+free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('museums+familyFriendly');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true && document.getElementById("free").checked == true) {
-        console.log('museums+free');
-        for (spot of spots) {
-            if (spot.category == 'Museum' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("museums").checked == true) {
-        console.log('only museums');
-        for (spot of spots) {
-            if (spot.category == 'Museum') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, museums');
-        for (spot of spots) {
-            if (spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('all but parks, museums, free');
-        for (spot of spots) {
-            if (spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, museums, familyFriendly');
-        for (spot of spots) {
-            if (spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("outdoor").checked == true) {
-        console.log('only indoor, outdoor');
-        array = spots;
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('all but parks, museums, familyFriendly');
-        for (spot of spots) {
-            if (spot.type == 'Indoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('only indoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.type == 'Indoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('only indoor, free');
-        for (spot of spots) {
-            if (spot.type == 'Indoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("indoor").checked == true) {
-        console.log('only indoor');
-        for (spot of spots) {
-            if (spot.type == 'Indoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('only outdoor, familyFriendly, free');
-        for (spot of spots) {
-            if (spot.type == 'Outdoor' && spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("outdoor").checked == true && document.getElementById("familyFriendly").checked == true) {
-        console.log('only outdoor, familyFriendly');
-        for (spot of spots) {
-            if (spot.type == 'Outdoor' && spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("outdoor").checked == true && document.getElementById("free").checked == true) {
-        console.log('only outdoor, free');
-        for (spot of spots) {
-            if (spot.type == 'Outdoor' && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("outdoor").checked == true) {
-        console.log('only outdoor');
-        for (spot of spots) {
-            if (spot.type == 'Outdoor') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("familyFriendly").checked == true && document.getElementById("free").checked == true) {
-        console.log('only familyFriendly, free');
-        for (spot of spots) {
-            if (spot.familyFriendly == true && spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("familyFriendly").checked == true) {
-        console.log('only familyFriendly');
-        for (spot of spots) {
-            if (spot.familyFriendly == true) {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else if (document.getElementById("free").checked == true) {
-        console.log('only free');
-        for (spot of spots) {
-            if (spot.price == 'Free') {
-                array.push(spot);
-                console.log(spot.name);
-            }
-        }
-    } else {
-        array = spots;
-    }
-    checkResult(array);
-    console.log(array);
-};
 
+
+
+/**
+ * Live filter function that updates the the content shown
+ */
+function filter() {
+    const parks = document.getElementById("parks").checked;
+    const museums = document.getElementById("museums").checked;
+    const indoor = document.getElementById("indoor").checked;
+    const outdoor = document.getElementById("outdoor").checked;
+    const family = document.getElementById("familyFriendly").checked;
+    const free = document.getElementById("free").checked;
+
+    const filtered = spots.filter(spot => {
+        const matchCategory = (!parks && !museums) ||
+            (parks && spot.category === 'Parks') ||
+            (museums && spot.category === 'Museum');
+
+        const matchType = (!indoor && !outdoor) ||
+            (indoor && spot.type === 'Indoor') ||
+            (outdoor && spot.type === 'Outdoor');
+
+        const matchFamily = !family || spot.familyFriendly;
+        const matchFree = !free || spot.price === 'Free';
+        return matchCategory && matchType && matchFamily && matchFree;
+    });
+    checkResult(filtered);
+}
+
+/**
+ * Checks the result from filter function, if 0 then generate text no result otherwise generate cards
+ * @param {*} array 
+ */
 function checkResult(array) {
-    if (array.length == 0) {
+    if (array.length === 0) {
         document.getElementById("content").innerHTML = '<p class="text-center">No Results...Try to change the filters</p>';
     } else {
         generateCards(array);
