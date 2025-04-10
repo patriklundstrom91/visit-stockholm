@@ -26,7 +26,8 @@ const spots = [{
         category: 'Museum',
         familyFriendly: true,
         id: 'cityHall',
-        button: 'cityHallBtn'
+        button: 'cityHallBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.5032688650654!2d18.052577613175252!3d59.327826411034714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77df9092cde9%3A0xaeafc90d911394c0!2sStockholms%20stadshus!5e1!3m2!1ssv!2sse!4v1744319207089!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: 'Royal Opera',
@@ -40,7 +41,8 @@ const spots = [{
         category: 'Museum',
         familyFriendly: false,
         id: 'royalOpera',
-        button: 'royalOperaBtn'
+        button: 'royalOperaBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.3397298585915!2d18.06790261317529!3d59.329734510881984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d592bf2a53d%3A0x5afe7e58cbd3397b!2sKungliga%20Operan!5e1!3m2!1ssv!2sse!4v1744319271875!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: 'Gröna Lund',
@@ -54,7 +56,8 @@ const spots = [{
         category: 'Parks',
         familyFriendly: true,
         id: 'gronaLund',
-        button: 'gronaLundBtn'
+        button: 'gronaLundBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.8866711394394!2d18.093767183761745!3d59.32335289733475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aac87aa537%3A0xd53ee16e34a5e131!2sGr%C3%B6na%20Lund!5e1!3m2!1ssv!2sse!4v1744319327761!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: 'ABBA the Museum',
@@ -68,7 +71,8 @@ const spots = [{
         category: 'Museum',
         familyFriendly: true,
         id: 'abba',
-        button: 'abbaBtn'
+        button: 'abbaBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.7527322652577!2d18.09438551317515!3d59.324915711267614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aad341ff05%3A0x4a15f07835978e47!2sABBA%20The%20Museum!5e1!3m2!1ssv!2sse!4v1744319370002!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: 'Old Town',
@@ -82,7 +86,8 @@ const spots = [{
         category: 'Parks',
         familyFriendly: true,
         id: 'oldTown',
-        button: 'oldTownBtn'
+        button: 'oldTownBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11650.986493754708!2d18.060366881720743!3d59.32498698914416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e2669ff92b%3A0x2600fef435168b11!2sGamla%20stan%2C%20S%C3%B6dermalm%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319411518!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: `Haymarket`,
@@ -96,7 +101,8 @@ const spots = [{
         category: 'Parks',
         familyFriendly: true,
         id: 'hayMarket',
-        button: 'hayMarketBtn'
+        button: 'hayMarketBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.903855761831!2d18.059654913175496!3d59.33481991047487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d67674b1659%3A0xe87d05663d192851!2sH%C3%B6torget%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319450160!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: `Stockholm Metro, Underground Art`,
@@ -110,7 +116,8 @@ const spots = [{
         category: 'Parks',
         familyFriendly: true,
         id: 'metro',
-        button: 'metroBtn'
+        button: 'metroBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.223602432464!2d18.057090313175394!3d59.33108941077355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d60812e6cc7%3A0xbe2201dc8bf32611!2sT-Centralen!5e1!3m2!1ssv!2sse!4v1744319496176!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     {
         name: `Östermalm Food Hall`,
@@ -124,20 +131,13 @@ const spots = [{
         category: 'Parks',
         familyFriendly: true,
         id: 'foodHall',
-        button: 'foodHallBtn'
+        button: 'foodHallBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.8063822133226!2d18.075108513175643!3d59.335957110383916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5b24096139%3A0x3d784e22bab4355a!2s%C3%96stermalms%20Saluhall!5e1!3m2!1ssv!2sse!4v1744319542256!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     }
 ];
 let visible = false;
 //Generate all spots when open site
 $(document).ready(() => generateCards(spots));
-
-/*//Eventlistener for filter
-document.getElementById("parks").addEventListener("click", filter);
-document.getElementById("museums").addEventListener("click", filter);
-document.getElementById("indoor").addEventListener("click", filter);
-document.getElementById("outdoor").addEventListener("click", filter);
-document.getElementById("familyFriendly").addEventListener("click", filter);
-document.getElementById("free").addEventListener("click", filter);*/
 
 //Add event listeners for all filters
 ["parks", "museums", "indoor", "outdoor", "familyFriendly", "free"].forEach(id => {
