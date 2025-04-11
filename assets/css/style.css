@@ -18,6 +18,10 @@ body {
     background-color: var(--primary-background);
 }
 
+h1 {
+    margin-top: 15px;
+}
+
 
 /*Navbar*/
 
@@ -75,6 +79,13 @@ body {
 
 #filter p {
     margin-bottom: 0px;
+}
+
+
+/*Current weather symbol*/
+
+#currentSymbol {
+    font-size: 40px;
 }
 
 #footer p {

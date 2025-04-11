@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li id="spotsBtn" class="nav-item">
-                        <button class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-current="page">Spots</a>
+                        <button class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-current="page">Places</a>
                     </li>
                     <li id="weatherBtn" class="nav-item">
                         <button class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">Weather</a>
@@ -82,7 +82,12 @@
         </div>
         <div id="weather" class="container section hide text-center">
             <h1>Weather in Stockholm</h1>
-            <p>Temp: 5 c </p>
+            <h2>Current weather</h2>
+            <div id="currentWeather">
+                <div id="currentSymbol"><i class="fa-solid fa-sun"></i></div>
+                <p id="currentText"></p>
+                <p id="tempC">Temperature: <span id="tempCdata"></span> °C </p>
+            </div>
         </div>
     </main>
     <footer id="footer" class="mt-auto footer">

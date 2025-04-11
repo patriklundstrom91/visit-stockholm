@@ -78,7 +78,7 @@ const spots = [{
         name: 'Old Town',
         img: 'assets/img/old-town.jpg',
         alt: 'picture of Old Town Stockholm',
-        text: `The Old Town dates from the 13th century but most buildings are from the 1600s and 1700s. It is a glorious labyrinth of charming cobbled streets, alleyways, faded mustard and rust-coloured townhouses and meeting squares. Stortorget is the main square and all the big attractions lead off it, including the baroque style Royal Palace (Kungliga Slottet) and The Royal Chapel (Storkyrkan) around the corner, where Crown Princess Victoria married Daniel Westling in June 2010. Old Town today Some 3,000 people live in the Old Town and it is packed with cafés, restaurants, tourist shops, studios, galleries and museums, including the Nobel Prize Museum and the Post Museum`,
+        text: `The Old Town dates from the 13th century but most buildings are from the 1600s and 1700s. It is a glorious labyrinth of charming cobbled streets, alleyways, faded mustard and rust-coloured townhouses and meeting squares. Stortorget is the main square and all the big attractions lead off it, including the baroque style Royal Palace (Kungliga Slottet) and The Royal Chapel (Storkyrkan) around the corner, where Crown Princess Victoria married Daniel Westling in June 2010. Old Town today Some 3,000 people live in the Old Town and it is packed with cafés, restaurants, tourist shops, studios, galleries and museums, including the Nobel Prize Museum.`,
         open: '',
         price: 'Free',
         address: 'Old Town, Stockholm',
@@ -93,7 +93,7 @@ const spots = [{
         name: `Haymarket`,
         img: 'assets/img/hotorget.jpg',
         alt: 'picture of Haymarket square',
-        text: `Haymarket (Hötorget) is a city square in the center of Stockholm, Sweden that has been transitioning since the Early Medieval Period. To its east lies the Royal Concert Hall, to its south lies Filmstaden Sergel, one of the largest multiscreen cinemas in inner-city Stockholm, and the adjacent Hötorgshallen food market hall`,
+        text: `Haymarket (Hötorget) is a city square in the center of Stockholm, Sweden that has been transitioning since the Early Medieval Period. To its east lies the Royal Concert Hall, to its south lies Filmstaden Sergel, one of the largest multiscreen cinemas in inner-city Stockholm, and the adjacent Hötorgshallen food market hall.`,
         open: '',
         price: 'Free',
         address: 'Hötorget, Stockholm',
@@ -191,8 +191,6 @@ function checkResult(array) {
 
 }
 
-
-
 /**
  * Function to generate code for the cards containing every spot, different cards are used depening on screen size
  * @param {*} items 
@@ -262,7 +260,7 @@ function generateCards(items) {
                 </div>`;
         }
     }
-};
+}
 
 //Toggle hiden text
 document.getElementById("content").addEventListener("click", function(event) {
@@ -287,11 +285,54 @@ document.getElementById("content").addEventListener("click", function(event) {
 async function weather() {
 
     const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin';
-    //const weatherData = await fetch(weatherAPI);
+    const weatherResponse = await fetch(weatherAPI);
+    const weatherData = await weatherResponse.json();
 
-    document.getElementById("content").classList.add("hide");
-    document.getElementById("filter").classList.add("hide");
-    document.getElementById("weather").classList.remove("hide");
+    if (weatherResponse.ok) {
+        const currentWeather = checkWeatherCode(weatherData);
+        console.log(weatherData);
+        document.getElementById("currentSymbol").innerHTML = `${currentWeather[0]}`;
+        document.getElementById("currentText").innerHTML = `${currentWeather[1]}`;
+        document.getElementById("tempCdata").innerHTML = `${weatherData.current.temperature_2m}`;
+
+        //Hide places/spots div and show weather div
+        document.getElementById("content").classList.add("hide");
+        document.getElementById("filter").classList.add("hide");
+        document.getElementById("weather").classList.remove("hide");
+    } else {
+        alert("Weather function not available right now");
+        throw new Error(weatherData.error);
+    }
+}
+/**
+ * Function to check weather code and return symbol and text
+ */
+function checkWeatherCode(weatherData) {
+    let symbolText = [];
+    if (weatherData.current.weather_code === 0) {
+        symbolText = [`<i class="fa-solid fa-sun"></i>`, `Clear skies`];
+    } else if (weatherData.current.weather_code === 1) {
+        symbolText = [`<i class="fa-solid fa-cloud-sun"></i>`, `Mainly clear`];
+    } else if (weatherData.current.weather_code === 2) {
+        symbolText = [`<i class="fa-solid fa-cloud-sun"></i>`, `Partly cloudy`];
+    } else if (weatherData.current.weather_code === 3) {
+        symbolText = [`<i class="fa-solid fa-cloud"></i>`, `Cloudy`];
+    } else if (weatherData.current.weather_code === 45 || weatherData.current.weather_code === 48) {
+        symbolText = [`<i class="fa-solid fa-smog"></i>`, `Fog`];
+    } else if (weatherData.current.weather_code === 61 || weatherData.current.weather_code === 63) {
+        symbolText = [`<i class="fa-solid fa-cloud-rain"></i>`, `Rain`];
+    } else if (weatherData.current.weather_code === 65) {
+        symbolText = [`<i class="fa-solid fa-cloud-showers-heavy"></i>`, `Heavy rain`];
+    } else if (weatherData.current.weather_code === 71 || weatherData.current.weather_code === 73 || weatherData.current.weather_code === 75) {
+        symbolText = [`<i class="fa-solid fa-snowflake"></i>`, `Snow fall`];
+    } else if (weatherData.current.weather_code === 80 || weatherData.current.weather_code === 81 || weatherData.current.weather_code === 82) {
+        symbolText = [`<i class="fa-solid fa-cloud-sun-rain"></i>`, `Rain showers`];
+    } else if (weatherData.current.weather_code === 95 || weatherData.current.weather_code === 96 || weatherData.current.weather_code === 99) {
+        symbolText = [`<i class="fa-solid fa-cloud-bolt"></i>`, `Risk of thunderstorm`];
+    } else {
+        symbolText = [`<i class="fa-solid fa-cloud"></i>`, `Cloudy`];
+    }
+    return symbolText;
 }
 
 /**
