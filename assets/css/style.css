@@ -82,11 +82,21 @@ h1 {
 }
 
 
+/*Weather styling*/
+
+#currentWeather p {
+    margin-bottom: 5px;
+}
+
+
 /*Current weather symbol*/
 
 #currentSymbol {
     font-size: 40px;
 }
+
+
+/*Footer style*/
 
 #footer p {
     margin: 0;

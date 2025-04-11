@@ -284,7 +284,7 @@ document.getElementById("content").addEventListener("click", function(event) {
  */
 async function weather() {
 
-    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin';
+    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms';
     const weatherResponse = await fetch(weatherAPI);
     const weatherData = await weatherResponse.json();
 
@@ -293,7 +293,8 @@ async function weather() {
         console.log(weatherData);
         document.getElementById("currentSymbol").innerHTML = `${currentWeather[0]}`;
         document.getElementById("currentText").innerHTML = `${currentWeather[1]}`;
-        document.getElementById("tempCdata").innerHTML = `${weatherData.current.temperature_2m}`;
+        document.getElementById("currentTempData").innerHTML = `${Math.round(weatherData.current.temperature_2m)}`;
+        document.getElementById("currentWindData").innerHTML = `${Math.round(weatherData.current.wind_speed_10m)}`;
 
         //Hide places/spots div and show weather div
         document.getElementById("content").classList.add("hide");
@@ -305,7 +306,7 @@ async function weather() {
     }
 }
 /**
- * Function to check weather code and return symbol and text
+ * Function to check weather code from open-meteo.com API and return symbol and text in a array with symbol index 0 and text index 1.
  */
 function checkWeatherCode(weatherData) {
     let symbolText = [];
