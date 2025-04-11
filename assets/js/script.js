@@ -1,3 +1,4 @@
+//Global variables
 //Array with objects containing the tourist spots
 const spots = [{
         name: 'Royal Palace',
@@ -135,7 +136,10 @@ const spots = [{
         map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.8063822133226!2d18.075108513175643!3d59.335957110383916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5b24096139%3A0x3d784e22bab4355a!2s%C3%96stermalms%20Saluhall!5e1!3m2!1ssv!2sse!4v1744319542256!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     }
 ];
+//Array with weekdays, 2 weeks so it can rotate 1 week ahead of today
+const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let visible = false;
+
 //Generate all spots when open site
 $(document).ready(() => generateCards(spots));
 
@@ -149,7 +153,6 @@ document.getElementById("weatherBtn").addEventListener("click", weather);
 
 //Eventlistener for back to spots
 document.getElementById("spotsBtn").addEventListener("click", toggleToContent);
-
 
 /**
  * Live filter function that updates the the content shown
@@ -284,17 +287,29 @@ document.getElementById("content").addEventListener("click", function(event) {
  */
 async function weather() {
 
-    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms';
+    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms';
     const weatherResponse = await fetch(weatherAPI);
     const weatherData = await weatherResponse.json();
 
     if (weatherResponse.ok) {
-        const currentWeather = checkWeatherCode(weatherData);
+        //Check the day
+        let currentDay = checkDay(weatherData.current.time);
+        //Show current weather
+        const currentWeather = checkWeatherCode(weatherData.current.weather_code);
+
         console.log(weatherData);
+        document.getElementById("currentDay").innerHTML = `${currentDay}`;
+        document.getElementById("currentDateData").innerHTML = `${weatherData.current.time}`;
         document.getElementById("currentSymbol").innerHTML = `${currentWeather[0]}`;
         document.getElementById("currentText").innerHTML = `${currentWeather[1]}`;
         document.getElementById("currentTempData").innerHTML = `${Math.round(weatherData.current.temperature_2m)}`;
         document.getElementById("currentWindData").innerHTML = `${Math.round(weatherData.current.wind_speed_10m)}`;
+        document.getElementById("currentPrecipitationData").innerHTML = `${weatherData.current.precipitation}`;
+        //Create daily forecast for a week
+        weeklyForecast(weatherData.daily);
+        //Show hourly 24h forward from present time
+        let index = weatherData.hourly.time.indexOf(weatherData.current.time);
+        console.log(index);
 
         //Hide places/spots div and show weather div
         document.getElementById("content").classList.add("hide");
@@ -306,29 +321,62 @@ async function weather() {
     }
 }
 /**
+ * Function to check day, returns day of today, send current.time from API, weekDAy array declared up at global variables
+ * @param {*} d 
+ */
+function checkDay(d) {
+    let date = new Date(d);
+    let currentDay = weekDay[date.getDay()];
+    return currentDay;
+}
+/**
+ * Generate cards with daily forecast 7 days
+ */
+function weeklyForecast(data) {
+    let today = checkDay(data.time[0]);
+    let dayIndex = weekDay.indexOf(today);
+    document.getElementById("weeklyCards").innerHTML = ``;
+    for (let i = 0; i < 7; i++) {
+        let symbolText = checkWeatherCode(data.weather_code[i]);
+        document.getElementById("weeklyCards").innerHTML += `
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">${weekDay[dayIndex]}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
+                        <p class="card-text">${symbolText[0]}</p>
+                        <p class="card-text">${symbolText[1]}</p>
+                        <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
+                        <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
+                        </div>
+                    </div>`;
+        dayIndex++;
+    }
+
+}
+/**
  * Function to check weather code from open-meteo.com API and return symbol and text in a array with symbol index 0 and text index 1.
  */
-function checkWeatherCode(weatherData) {
+function checkWeatherCode(weatherCode) {
     let symbolText = [];
-    if (weatherData.current.weather_code === 0) {
+    if (weatherCode === 0) {
         symbolText = [`<i class="fa-solid fa-sun"></i>`, `Clear skies`];
-    } else if (weatherData.current.weather_code === 1) {
+    } else if (weatherCode === 1) {
         symbolText = [`<i class="fa-solid fa-cloud-sun"></i>`, `Mainly clear`];
-    } else if (weatherData.current.weather_code === 2) {
+    } else if (weatherCode === 2) {
         symbolText = [`<i class="fa-solid fa-cloud-sun"></i>`, `Partly cloudy`];
-    } else if (weatherData.current.weather_code === 3) {
+    } else if (weatherCode === 3) {
         symbolText = [`<i class="fa-solid fa-cloud"></i>`, `Cloudy`];
-    } else if (weatherData.current.weather_code === 45 || weatherData.current.weather_code === 48) {
+    } else if (weatherCode === 45 || weatherCode === 48) {
         symbolText = [`<i class="fa-solid fa-smog"></i>`, `Fog`];
-    } else if (weatherData.current.weather_code === 61 || weatherData.current.weather_code === 63) {
+    } else if (weatherCode === 61 || weatherCode === 63) {
         symbolText = [`<i class="fa-solid fa-cloud-rain"></i>`, `Rain`];
-    } else if (weatherData.current.weather_code === 65) {
+    } else if (weatherCode === 65) {
         symbolText = [`<i class="fa-solid fa-cloud-showers-heavy"></i>`, `Heavy rain`];
-    } else if (weatherData.current.weather_code === 71 || weatherData.current.weather_code === 73 || weatherData.current.weather_code === 75) {
+    } else if (weatherCode === 71 || weatherCode === 73 || weatherCode === 75) {
         symbolText = [`<i class="fa-solid fa-snowflake"></i>`, `Snow fall`];
-    } else if (weatherData.current.weather_code === 80 || weatherData.current.weather_code === 81 || weatherData.current.weather_code === 82) {
+    } else if (weatherCode === 80 || weatherCode === 81 || weatherCode === 82) {
         symbolText = [`<i class="fa-solid fa-cloud-sun-rain"></i>`, `Rain showers`];
-    } else if (weatherData.current.weather_code === 95 || weatherData.current.weather_code === 96 || weatherData.current.weather_code === 99) {
+    } else if (weatherCode === 95 || weatherCode === 96 || weatherCode === 99) {
         symbolText = [`<i class="fa-solid fa-cloud-bolt"></i>`, `Risk of thunderstorm`];
     } else {
         symbolText = [`<i class="fa-solid fa-cloud"></i>`, `Cloudy`];

@@ -84,8 +84,16 @@ h1 {
 
 /*Weather styling*/
 
+.card {
+    min-width: 183px;
+}
+
 #currentWeather p {
     margin-bottom: 5px;
+}
+
+.card p {
+    margin-bottom: 1px;
 }
 
 

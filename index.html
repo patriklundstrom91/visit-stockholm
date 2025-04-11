@@ -84,10 +84,20 @@
             <h1>Weather in Stockholm</h1>
             <h2>Current weather</h2>
             <div id="currentWeather">
+                <p id="currentDay"></p>
                 <div id="currentSymbol"><i class="fa-solid fa-sun"></i></div>
                 <p id="currentText"></p>
                 <p id="CurrentTemp">Temperature: <span id="currentTempData"></span> °C </p>
                 <p id="currentWind">Wind: <span id="currentWindData"></span> m/s</p>
+                <p id="currentPrecipitation">Precipitation: <span id="currentPrecipitationData"></span> mm</p>
+                <p id="currentDate">Updated: <span id="currentDateData"></span></p>
+            </div>
+            <div id="hourly" class="hide">
+
+            </div>
+            <div id="weekly" class="row">
+                <h2>One week forecast</h2>
+                <div id="weeklyCards"></div>
             </div>
         </div>
     </main>
