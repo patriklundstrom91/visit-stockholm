@@ -202,8 +202,8 @@ function generateCards(items) {
     document.getElementById("content").innerHTML = "";
     let width = window.innerWidth;
 
-    if (width <= 768) {
-        for (item of items) {
+    if (width < 768) {
+        for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card col-12">
             <img src="${item.img}" class="card-img-top" alt="${item.alt}">
             <div class="card-body">
@@ -219,8 +219,8 @@ function generateCards(items) {
             </div>`;
         }
 
-    } else if (width > 768 && width <= 992) {
-        for (item of items) {
+    } else if (width >= 768 && width <= 992) {
+        for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
@@ -242,7 +242,7 @@ function generateCards(items) {
             </div>`;
         }
     } else {
-        for (item of items) {
+        for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
