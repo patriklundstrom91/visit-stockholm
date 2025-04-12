@@ -287,7 +287,7 @@ document.getElementById("content").addEventListener("click", function(event) {
  */
 async function weather() {
 
-    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms';
+    const weatherAPI = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,precipitation_sum&hourly=temperature_2m,weather_code,wind_speed_10m,precipitation&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms';
     const weatherResponse = await fetch(weatherAPI);
     const weatherData = await weatherResponse.json();
 
@@ -338,7 +338,7 @@ function weeklyForecast(data) {
     document.getElementById("weeklyCards").innerHTML = ``;
     for (let i = 0; i < 7; i++) {
         let symbolText = checkWeatherCode(data.weather_code[i]);
-        document.getElementById("weeklyCards").innerHTML += `
+        document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card">
                         <div class="card-body">
                         <h5 class="card-title">${weekDay[dayIndex]}</h5>
@@ -347,8 +347,10 @@ function weeklyForecast(data) {
                         <p class="card-text">${symbolText[1]}</p>
                         <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
                         <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
+                        <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
                         </div>
-                    </div>`;
+                    </div>
+                </div>`;
         dayIndex++;
     }
 
@@ -368,6 +370,8 @@ function checkWeatherCode(weatherCode) {
         symbolText = [`<i class="fa-solid fa-cloud"></i>`, `Cloudy`];
     } else if (weatherCode === 45 || weatherCode === 48) {
         symbolText = [`<i class="fa-solid fa-smog"></i>`, `Fog`];
+    } else if (weatherCode === 51 || weatherCode === 53 || weatherCode === 55) {
+        symbolText = [`<i class="fa-solid fa-cloud-rain"></i>`, `Drizzle`];
     } else if (weatherCode === 61 || weatherCode === 63) {
         symbolText = [`<i class="fa-solid fa-cloud-rain"></i>`, `Rain`];
     } else if (weatherCode === 65) {

@@ -84,8 +84,15 @@ h1 {
 
 /*Weather styling*/
 
-.card {
+#weekly {
+    margin-top: 20px;
+}
+
+#weeklyCards .card {
     min-width: 183px;
+    background-color: var(--primary-background);
+    border: none;
+    margin-bottom: 10px;
 }
 
 #currentWeather p {
