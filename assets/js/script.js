@@ -213,7 +213,9 @@ function generateCards(items) {
                 <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
                 <div id="${item.id}" class="hide">
                 <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                <div class="map">
                 ${item.map}
+                </div>
                 <a href="#" class="btn btn-primary">Get there</a>
                 </div>
             </div>
@@ -234,7 +236,9 @@ function generateCards(items) {
                    <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
                     <div id="${item.id}" class="hide">
                     <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                    <div class="map">
                     ${item.map}
+                    </div>
                     <a href="#" class="btn btn-primary">Get there</a>
                     </div>
                  </div>
@@ -258,9 +262,15 @@ function generateCards(items) {
                  <div class="col-md-3">
                     <div class="card-body">
                     <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                    <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
                     </div>
-                 </div
-                </div>`;
+                 </div>
+                 <div id="${item.id}" class="hide">
+                    <div class="map">
+                    ${item.map}
+                    </div>
+                </div>
+            </div>`;
         }
     }
 }
