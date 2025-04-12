@@ -335,9 +335,28 @@ function checkDay(d) {
 function weeklyForecast(data) {
     let today = checkDay(data.time[0]);
     let dayIndex = weekDay.indexOf(today);
+    let i = 0;
+    let symbolText = checkWeatherCode(data.weather_code[i]);
+
     document.getElementById("weeklyCards").innerHTML = ``;
-    for (let i = 0; i < 7; i++) {
-        let symbolText = checkWeatherCode(data.weather_code[i]);
+    //Create first card with today text
+    document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">Today <span id="dayFirstCard">(${weekDay[dayIndex]})</span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
+                        <p class="card-text">${symbolText[0]}</p>
+                        <p class="card-text">${symbolText[1]}</p>
+                        <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
+                        <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
+                        <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
+                        </div>
+                    </div>
+                </div>`;
+    i++;
+    dayIndex++;
+    for (i; i < 7; i++) {
+        symbolText = checkWeatherCode(data.weather_code[i]);
         document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card">
                         <div class="card-body">
