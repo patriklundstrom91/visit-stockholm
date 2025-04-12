@@ -142,9 +142,9 @@ h1 {
 }
 
 
-/*Media query medium size display 768px up*/
+/*Media query large size display 992px up*/
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:992px) {
     .map {
         /*Control aspect ratio 75% 4:3 and 56.25% 16:9 */
         padding-top: 56.25%;
