@@ -64,6 +64,13 @@ h1 {
 }
 
 
+/*Spots card style */
+
+#content .card {
+    margin-bottom: 16px;
+}
+
+
 /*Map responsivnes*/
 
 .map {
