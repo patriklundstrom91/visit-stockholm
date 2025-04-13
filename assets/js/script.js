@@ -138,7 +138,9 @@ const spots = [{
 ];
 //Array with weekdays, 2 weeks so it can rotate 1 week ahead of today
 const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+//Trackers if hidden elements are visible or not
 let visible = false;
+let hourlyVisible = false;
 
 //Generate all spots when open site
 $(document).ready(() => generateCards(spots));
@@ -315,11 +317,11 @@ async function weather() {
         document.getElementById("currentTempData").innerHTML = `${Math.round(weatherData.current.temperature_2m)}`;
         document.getElementById("currentWindData").innerHTML = `${Math.round(weatherData.current.wind_speed_10m)}`;
         document.getElementById("currentPrecipitationData").innerHTML = `${weatherData.current.precipitation}`;
+
+        //Show hourly 24h forward from present time
+        detailedForecast(weatherData);
         //Create daily forecast for a week
         weeklyForecast(weatherData.daily);
-        //Show hourly 24h forward from present time
-        let index = weatherData.hourly.time.indexOf(weatherData.current.time);
-        console.log(index);
 
         //Hide places/spots div and show weather div
         document.getElementById("content").classList.add("hide");
@@ -331,7 +333,7 @@ async function weather() {
     }
 }
 /**
- * Function to check day, returns day of today, send current.time from API, weekDAy array declared up at global variables
+ * Function to check day, returns day of today, send current.time from API, weekDay array declared up at global variables
  * @param {*} d 
  */
 function checkDay(d) {
@@ -340,7 +342,41 @@ function checkDay(d) {
     return currentDay;
 }
 /**
+ * Generate the detailed 48h forecast
+ * @param {*} data 
+ */
+function detailedForecast(data) {
+    //code to find index of now in hourly data that starts att 00 of today, but since current time can be 18:45 then I use slice to cut :45 so indexOf works. 
+    let hourlySliced = [];
+    for (let i = 0; i < 24; i++) {
+        hourlySliced.push(data.hourly.time[i].slice(0, 13));
+    }
+    let index = hourlySliced.indexOf(data.current.time.slice(0, 13));
+    document.getElementById("hourlyForecast").innerHTML = ``;
+    for (let i = 0; i < 48; i++) {
+        let symbolText = checkWeatherCode(data.hourly.weather_code[index]);
+        document.getElementById("hourlyForecast").innerHTML += `<div class="hourly">
+        <p>${data.hourly.time[index]} ${symbolText[0]} ${symbolText[1]} Temp:${Math.round(data.hourly.temperature_2m[index])}°C Wind:${Math.round(data.hourly.wind_speed_10m[index])}m/s Precipitation:${data.hourly.precipitation[index]}mm</p>
+        </div>`;
+        index++;
+    }
+}
+/**
+ * Function to toggle 48h hourly forecast
+ */
+document.getElementById("hourlyBtn").addEventListener("click", function() {
+    $("#hourlyForecast").toggle("slow");
+    if (!hourlyVisible) {
+        document.getElementById("hourlyBtn").innerHTML = `Hide hourly 48h forecast <i class="fa-solid fa-angle-up"></i>`;
+        hourlyVisible = true;
+    } else {
+        document.getElementById("hourlyBtn").innerHTML = `Show hourly 48h forecast <i class="fa-solid fa-angle-down"></i>`;
+        hourlyVisible = false;
+    }
+});
+/**
  * Generate cards with daily forecast 7 days
+ * @param {*} data 
  */
 function weeklyForecast(data) {
     let today = checkDay(data.time[0]);
