@@ -353,10 +353,10 @@ function detailedForecast(data) {
     }
     let index = hourlySliced.indexOf(data.current.time.slice(0, 13));
     document.getElementById("hourlyForecast").innerHTML = ``;
-    for (let i = 0; i < 48; i++) {
+    for (let i = 0; i < 24; i++) {
         let symbolText = checkWeatherCode(data.hourly.weather_code[index]);
         document.getElementById("hourlyForecast").innerHTML += `<div class="hourly">
-        <p>${data.hourly.time[index]} ${symbolText[0]} ${symbolText[1]} Temp:${Math.round(data.hourly.temperature_2m[index])}°C Wind:${Math.round(data.hourly.wind_speed_10m[index])}m/s Precipitation:${data.hourly.precipitation[index]}mm</p>
+        <p>${data.hourly.time[index].slice(11)} ${symbolText[0]} ${Math.round(data.hourly.temperature_2m[index])}°C ${Math.round(data.hourly.wind_speed_10m[index])}m/s ${data.hourly.precipitation[index]}mm</p>
         </div>`;
         index++;
     }
@@ -367,10 +367,10 @@ function detailedForecast(data) {
 document.getElementById("hourlyBtn").addEventListener("click", function() {
     $("#hourlyForecast").toggle("slow");
     if (!hourlyVisible) {
-        document.getElementById("hourlyBtn").innerHTML = `Hide hourly 48h forecast <i class="fa-solid fa-angle-up"></i>`;
+        document.getElementById("hourlyBtn").innerHTML = `Hide hourly 24h forecast <i class="fa-solid fa-angle-up"></i>`;
         hourlyVisible = true;
     } else {
-        document.getElementById("hourlyBtn").innerHTML = `Show hourly 48h forecast <i class="fa-solid fa-angle-down"></i>`;
+        document.getElementById("hourlyBtn").innerHTML = `Show hourly 24h forecast <i class="fa-solid fa-angle-down"></i>`;
         hourlyVisible = false;
     }
 });
