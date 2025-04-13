@@ -462,3 +462,27 @@ function toggleToContent() {
     document.getElementById("content").classList.remove("hide");
 
 }
+/**
+ * Function that show how to get there by public transport, API to SL by trafiklab https://www.trafiklab.se/api/trafiklab-apis/sl/route-planner-31/
+ */
+function publicTransport(position) {
+    const API_URL_trip = `https://journeyplanner.integration.sl.se/v1/TravelplannerV3_1/trip.<FORMAT>?key=TRAFIKLAB-SLAPI-INTEGRATION-2024&<parameters>`;
+    const API_URL_journeyDetail = `https://journeyplanner.integration.sl.se/v1/TravelplannerV3_1/journeydetail.<FORMAT>?key=TRAFIKLAB-SLAPI-INTEGRATION-2024&<parameters>`;
+
+    //position.coords.latitude + position.coords.longitude;
+}
+/**
+ * Function to check location, taken from w3schools https://www.w3schools.com/htmL/html5_geolocation.asp
+ */
+function getLocation() {
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(publicTransport, error);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function error() {
+    alert("Sorry, no position available.");
+}
