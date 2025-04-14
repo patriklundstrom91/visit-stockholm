@@ -81,7 +81,7 @@ h1 {
 }
 
 
-/*Img in cards*/
+/*Img in cards on tablet and desktop*/
 
 .sideImg {
     display: flex;
@@ -89,10 +89,16 @@ h1 {
     align-items: center;
 }
 
+
+/*Adjust price and opening hours info on the side on desktop*/
+
 .sideInfo {
     display: flex;
     align-items: center;
 }
+
+
+/*round the edges on pics, apply on cards with pic on side (tablet and bigger)*/
 
 .img-fluid {
     border-radius: 15%;

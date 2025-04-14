@@ -243,8 +243,7 @@ const spots = [{
 ];
 //Array with weekdays, 2 weeks so it can rotate 1 week ahead of today
 const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-//Trackers if hidden elements are visible or not
-let visible = false;
+//Tracker if hidden element 24h forecast is visible or not
 let hourlyVisible = false;
 
 //Generate all spots when open site
@@ -410,7 +409,6 @@ async function weather() {
         //Show current weather
         const currentWeather = checkWeatherCode(weatherData.current.weather_code);
 
-        console.log(weatherData);
         document.getElementById("currentDay").innerHTML = `${currentDay}`;
         document.getElementById("currentDateData").innerHTML = `${weatherData.current.time}`;
         document.getElementById("currentSymbol").innerHTML = `${currentWeather[0]}`;
@@ -486,7 +484,7 @@ function weeklyForecast(data) {
     let symbolText = checkWeatherCode(data.weather_code[i]);
 
     document.getElementById("weeklyCards").innerHTML = ``;
-    //Create first card with today text
+    //Create first card with text Today (weekday)
     document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card">
                     <div class="card-body">
@@ -502,6 +500,7 @@ function weeklyForecast(data) {
             </div>`;
     i++;
     dayIndex++;
+    //Create the rest of the cards with only weekday as headline
     for (i; i < 7; i++) {
         symbolText = checkWeatherCode(data.weather_code[i]);
         document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
