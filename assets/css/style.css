@@ -180,6 +180,20 @@ h1 {
 }
 
 
+/*Color for link back to top*/
+
+#footer a {
+    color: #fff;
+}
+
+
+/*Hover effect for link to top*/
+
+#footer a:hover {
+    color: var(--primary-background);
+}
+
+
 /*Media query large size display 992px up*/
 
 @media screen and (min-width:992px) {
