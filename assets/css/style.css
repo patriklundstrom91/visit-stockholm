@@ -16,6 +16,16 @@
 body {
     font-family: var(--primary-font);
     background-color: var(--primary-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Add flex 1 to push down footer*/
+
+main {
+    flex: 1;
 }
 
 h1 {
@@ -71,6 +81,24 @@ h1 {
 }
 
 
+/*Img in cards*/
+
+.sideImg {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.sideInfo {
+    display: flex;
+    align-items: center;
+}
+
+.img-fluid {
+    border-radius: 15%;
+}
+
+
 /*Map responsivnes*/
 
 .map {
@@ -87,13 +115,6 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-
-/*Footer*/
-
-#footer {
-    background-color: var(--primary-color);
 }
 
 
@@ -142,6 +163,10 @@ h1 {
 
 
 /*Footer style*/
+
+#footer {
+    background-color: var(--primary-color);
+}
 
 #footer p {
     margin: 0;

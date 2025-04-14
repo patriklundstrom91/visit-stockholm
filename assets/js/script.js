@@ -134,6 +134,111 @@ const spots = [{
         id: 'foodHall',
         button: 'foodHallBtn',
         map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.8063822133226!2d18.075108513175643!3d59.335957110383916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5b24096139%3A0x3d784e22bab4355a!2s%C3%96stermalms%20Saluhall!5e1!3m2!1ssv!2sse!4v1744319542256!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Stockholm City Museum`,
+        img: 'assets/img/cityMuseum.jpg',
+        alt: 'picture of Stockholm city museum',
+        text: `A magnificent 17th-century palace filled to the brim with Stockholm's history. Trace the city's development from a little, medieval harbor town to today’s multicultural metropolis. The Stockholm City Museum is documenting, preserving and exhibiting the history of Stockholm. The museum is housed in Södra Stadshuset at Slussen on Södermalm.`,
+        open: 'Tuesday, Thursday, Friday, Saturday, Sunday 11.00-17.00<br>Wednesday 11.00-20.00',
+        price: 'Free',
+        address: 'Ryssgården, Stockholm',
+        type: 'Indoor',
+        category: 'Museum',
+        familyFriendly: true,
+        id: 'cityMuseum',
+        button: 'cityMuseumBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6324.745243095819!2d18.06832371330097!3d59.319697711685215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e4a61197c9%3A0x68648d883aed683d!2sStadsmuseet%20i%20Stockholm!5e1!3m2!1ssv!2sse!4v1744654980766!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `King's Garden (Kungsträdgården)`,
+        img: 'assets/img/kingsGarden.jpg',
+        alt: 'picture of Kings Garden park',
+        text: `King's Garden (In Swedish "Kungsträdgården") is a park in central Stockholm, Sweden. It is colloquially known as Kungsan. The park's central location and its outdoor cafés makes it one of the most popular hangouts and meeting places in Stockholm. It also hosts open-air concerts and events in summer, while offering an ice rink during winters. There is also a number of cafés, art galleries and restaurants; for example Galleri Doktor Glas, a name taken from the novel Doctor Glas by Hjalmar Söderberg published in 1905.`,
+        open: '',
+        price: 'Free',
+        address: 'Jussi Björlings allé, Stockholm',
+        type: 'Outdoor',
+        category: 'Parks',
+        familyFriendly: true,
+        id: 'kingsGarden',
+        button: 'kingsGardenBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.308852488446!2d18.066732362944443!3d59.331131745627225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5945458205%3A0x1df0a2acc2aa00fc!2zS3VuZ3N0csOkZGfDpXJkZW4!5e1!3m2!1ssv!2sse!4v1744655469610!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Drottningholm Palace`,
+        img: 'assets/img/drottningholm-palace.jpg',
+        alt: 'picture of Drottningholm Palace',
+        text: `Drottningholm Palace (Swedish: Drottningholms slott), one of Sweden's royal palaces, situated near Sweden's capital Stockholm, is the private residence of the Swedish royal family. Located on Lovön island in Stockholm County's Ekerö Municipality, it was built in the late 17th century and was a regular summer residence of the Swedish royal court through most of the 18th century. Drottningholm Palace is a popular tourist attraction where you can both buy a ticket and enter parts of the palace or walk around the garden for free. The most senic route to the palace would be by boat from the city center and arrive right infront of the palace.`,
+        open: 'Mon-Sun: 10-17',
+        price: 'Adult: from 160 SEK<br>Student: from 140 SEK<br>Age 7-17: from 80 SEK<br>Garden: Free',
+        address: 'Drottningholms slott, Drottningholm',
+        type: 'Indoor',
+        category: 'Museum',
+        familyFriendly: true,
+        id: 'drottningholm',
+        button: 'drottningholmBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12646.636263926734!2d17.878777333738707!3d59.327367588393884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f75b9dd16af4d%3A0x3996037125378858!2sDrottningholms%20Slott!5e1!3m2!1ssv!2sse!4v1744657477930!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Vasa Museum`,
+        img: 'assets/img/vasa.jpg',
+        alt: 'picture of the ship Vasa',
+        text: `The Vasa Museum (Swedish: Vasamuseet) is a maritime museum in Stockholm, located on the island of Djurgården. The Vasa ship is the best-preserved seventeenth-century ship in the world and a unique art treasure. More than 98 percent of the ship is original, and it is decorated with hundreds of carved sculptures. The 69 meter-long warship Vasa sank on its maiden voyage in Stockholm harbor in 1628 and was salvaged 333 years later in 1961. For nearly half a century the ship has been slowly, deliberately, and painstakingly restored to a state approaching its original glory. The three masts on the roof of the tailor-made museum show the height of the ship's original masts.`,
+        open: 'Mon-Sun: 10-17<br>Wednesday: 10-20',
+        price: 'Adult (18+): 195 SEK<br>Children: Free',
+        address: 'Galärvarvsvägen 14, Stockholm',
+        type: 'Indoor',
+        category: 'Museum',
+        familyFriendly: true,
+        id: 'vasa',
+        button: 'vasaBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.195615943604!2d18.088816113301295!3d59.32802601101863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d546d8329af%3A0xcff09af1b4c13241!2sVasamuseet!5e1!3m2!1ssv!2sse!4v1744659214504!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Nordic Museum`,
+        img: 'assets/img/nordicMuseum.jpg',
+        alt: 'picture of the Nordic Museum',
+        text: `The Nordic Museum is a museum located on Djurgården, an island in central Stockholm, Sweden, dedicated to the cultural history and ethnography of Sweden from the early modern period to the contemporary period.`,
+        open: 'Mon-Sun: 10-17',
+        price: 'Adult (18+): 170 SEK<br>Student: 150 SEK<br>Children: Free',
+        address: 'Djurgårdsvägen 6-16, Stockholm',
+        type: 'Indoor',
+        category: 'Museum',
+        familyFriendly: true,
+        id: 'nordicMuseum',
+        button: 'nordicMuseumBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.5061931514424!2d18.091687713301294!3d59.32901071093975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d538319a8c5%3A0xd78b9c1c85cfa918!2sNordiska%20museet!5e1!3m2!1ssv!2sse!4v1744659950188!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Skansen Open-air Museum`,
+        img: 'assets/img/skansen.jpg',
+        alt: 'picture of a house at Skansen',
+        text: `Skansen is the oldest open-air museum and zoo in Sweden located on the island Djurgården in Stockholm. It was opened on 11 October 1891 to show the way of life in the different parts of Sweden before the industrial era. The site include a full replica of an average 19th-century town, in which craftsmen in traditional dress such as tanners, shoemakers, silversmiths, bakers and glass-blowers demonstrate their skills in period surroundings. There is also an open-air zoo containing a wide range of Scandinavian animals including the brown bear, moose, grey seal, Eurasian lynx, wolf, fox, otter, reindeer, harbour seal, Eurasian eagle owl, great grey owl and wolverine, as well as some non-Scandinavian animals.`,
+        open: 'Mon-Sun: 10-18',
+        price: 'Adult: 285 SEK<br>Student: 265 SEK<br>Age 4-15: 85 SEK',
+        address: 'Djurgårdsslätten 49-51, Stockholm',
+        type: 'Outdoor',
+        category: 'Museum',
+        familyFriendly: true,
+        id: 'skansen',
+        button: 'skansenBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.512053433474!2d18.10327791330111!3d59.326325411154784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aafeda9437%3A0x2c35b6cfd6468531!2sSkansen!5e1!3m2!1ssv!2sse!4v1744661687119!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
+    {
+        name: `Vaxholm`,
+        img: 'assets/img/vaxholm.jpg',
+        alt: 'picture of vaxholm hotel',
+        text: `Start exploring the Stockholm archipelago by going to Vaxholm. It's a city, urban area and the seat of Vaxholm Municipality, Stockholm County, Sweden. It occupies the islands of Vaxön and Kullö in the Stockholm archipelago. The name Vaxholm comes from Vaxholm Fortress, which was constructed in 1549 on the adjacent islet of Vaxholmen. For historical reasons it has always been referred to as a city, despite the small number of inhabitants, which as of 2020 total was 6,151. Vaxholm Municipality prefers to use the designation Vaxholms stad (City of Vaxholm) for its whole territory, including 64 islets in the Stockholm archipelago, a usage which is somewhat confusing. You can go to Vaxholm by both buss and boat, the most senic route would be by boat from central Stockholm.`,
+        open: '',
+        price: 'Free',
+        address: 'Vaxholm island',
+        type: 'Outdoor',
+        category: 'Parks',
+        familyFriendly: true,
+        id: 'vaxholm',
+        button: 'vaxholmBtn',
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21220.54780683792!2d18.32550425450693!3d59.40478691034756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465ef319667a1fc1%3A0xca12483bf0358351!2sVaxholm!5e1!3m2!1ssv!2sse!4v1744662406412!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     }
 ];
 //Array with weekdays, 2 weeks so it can rotate 1 week ahead of today
@@ -227,8 +332,8 @@ function generateCards(items) {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
         <div class="row g-0">
-          <div class="col-md-4">
-             <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
+          <div class="col-md-4 sideImg">
+             <img src="${item.img}" class="img-fluid" alt="${item.alt}">
            </div>
            <div class="col-md-8">
              <div class="card-body">
@@ -250,8 +355,8 @@ function generateCards(items) {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
         <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
+          <div class="col-md-4 sideImg">
+            <img src="${item.img}" class="img-fluid" alt="${item.alt}">
           </div>
           <div class="col-md-5">
             <div class="card-body">
@@ -259,7 +364,7 @@ function generateCards(items) {
              <p class="card-text">${item.text}</p>
              </div>
              </div>
-             <div class="col-md-3">
+             <div class="col-md-3 sideInfo">
                 <div class="card-body">
                 <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
                 <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
