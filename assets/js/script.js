@@ -208,11 +208,34 @@ function generateCards(items) {
     if (width < 768) {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card col-12">
-            <img src="${item.img}" class="card-img-top" alt="${item.alt}">
-            <div class="card-body">
-                <h5 class="card-title">${item.name}</h5>
-                <p class="card-text">${item.text}</p>
-                <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+        <img src="${item.img}" class="card-img-top" alt="${item.alt}">
+        <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">${item.text}</p>
+            <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+            <div id="${item.id}" class="hide">
+            <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+            <div class="map">
+            ${item.map}
+            </div>
+            <a href="#" class="btn btn-primary">Get there</a>
+            </div>
+        </div>
+        </div>`;
+        }
+
+    } else if (width >= 768 && width <= 992) {
+        for (let item of items) {
+            document.getElementById("content").innerHTML += `<div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+             <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
+           </div>
+           <div class="col-md-8">
+             <div class="card-body">
+               <h5 class="card-title">${item.name}</h5>
+               <p class="card-text">${item.text}</p>
+               <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
                 <div id="${item.id}" class="hide">
                 <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
                 <div class="map">
@@ -220,59 +243,36 @@ function generateCards(items) {
                 </div>
                 <a href="#" class="btn btn-primary">Get there</a>
                 </div>
-            </div>
-            </div>`;
-        }
-
-    } else if (width >= 768 && width <= 992) {
-        for (let item of items) {
-            document.getElementById("content").innerHTML += `<div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                 <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
-               </div>
-               <div class="col-md-8">
-                 <div class="card-body">
-                   <h5 class="card-title">${item.name}</h5>
-                   <p class="card-text">${item.text}</p>
-                   <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
-                    <div id="${item.id}" class="hide">
-                    <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-                    <div class="map">
-                    ${item.map}
-                    </div>
-                    <a href="#" class="btn btn-primary">Get there</a>
-                    </div>
-                 </div>
-               </div>
-              </div>
-            </div>`;
+             </div>
+           </div>
+          </div>
+        </div>`;
         }
     } else {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
-              </div>
-              <div class="col-md-5">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${item.img}" class="img-fluid rounded-start" alt="${item.alt}">
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title">${item.name}</h5>
+             <p class="card-text">${item.text}</p>
+             </div>
+             </div>
+             <div class="col-md-3">
                 <div class="card-body">
-                  <h5 class="card-title">${item.name}</h5>
-                 <p class="card-text">${item.text}</p>
-                 </div>
-                 </div>
-                 <div class="col-md-3">
-                    <div class="card-body">
-                    <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-                    <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
-                    </div>
-                 </div>
-                 <div id="${item.id}" class="hide">
-                    <div class="map">
-                    ${item.map}
-                    </div>
+                <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
                 </div>
-            </div>`;
+             </div>
+             <div id="${item.id}" class="hide">
+                <div class="map">
+                ${item.map}
+                </div>
+            </div>
+        </div>`;
         }
     }
 }
@@ -282,12 +282,12 @@ document.getElementById("content").addEventListener("click", function(event) {
     if (event.target.tagName == "BUTTON") {
         let id = event.target.id.slice(0, event.target.id.length - 3);
 
-        if (!visible) {
-            document.getElementById(`${event.target.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
+        if (document.getElementById(id).getAttribute("style") === "display: block;") {
+            document.getElementById(`${event.target.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
             $(`#${id}`).toggle("slow");
             visible = true;
-        } else if (visible) {
-            document.getElementById(`${event.target.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
+        } else {
+            document.getElementById(`${event.target.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
             $(`#${id}`).toggle("slow");
             visible = false;
         }
@@ -356,8 +356,8 @@ function detailedForecast(data) {
     for (let i = 0; i < 24; i++) {
         let symbolText = checkWeatherCode(data.hourly.weather_code[index]);
         document.getElementById("hourlyForecast").innerHTML += `<div class="hourly">
-        <p>${data.hourly.time[index].slice(11)} ${symbolText[0]} ${Math.round(data.hourly.temperature_2m[index])}°C ${Math.round(data.hourly.wind_speed_10m[index])}m/s ${data.hourly.precipitation[index]}mm</p>
-        </div>`;
+    <p>${data.hourly.time[index].slice(11)} ${symbolText[0]} ${Math.round(data.hourly.temperature_2m[index])}°C ${Math.round(data.hourly.wind_speed_10m[index])}m/s ${data.hourly.precipitation[index]}mm</p>
+    </div>`;
         index++;
     }
 }
@@ -387,35 +387,35 @@ function weeklyForecast(data) {
     document.getElementById("weeklyCards").innerHTML = ``;
     //Create first card with today text
     document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title">Today <span id="dayFirstCard">(${weekDay[dayIndex]})</span></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
-                        <p class="card-text">${symbolText[0]}</p>
-                        <p class="card-text">${symbolText[1]}</p>
-                        <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
-                        <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
-                        <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">Today <span id="dayFirstCard">(${weekDay[dayIndex]})</span></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
+                    <p class="card-text">${symbolText[0]}</p>
+                    <p class="card-text">${symbolText[1]}</p>
+                    <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
+                    <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
+                    <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
     i++;
     dayIndex++;
     for (i; i < 7; i++) {
         symbolText = checkWeatherCode(data.weather_code[i]);
         document.getElementById("weeklyCards").innerHTML += `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title">${weekDay[dayIndex]}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
-                        <p class="card-text">${symbolText[0]}</p>
-                        <p class="card-text">${symbolText[1]}</p>
-                        <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
-                        <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
-                        <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">${weekDay[dayIndex]}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${data.time[i]}</h6>
+                    <p class="card-text">${symbolText[0]}</p>
+                    <p class="card-text">${symbolText[1]}</p>
+                    <p class="card-text">Temp: ${Math.round(data.temperature_2m_max[i])} °C (${Math.round(data.temperature_2m_min[i])} °C)</p>
+                    <p class="card-text">Max Wind: ${Math.round(data.wind_speed_10m_max[i])} m/s</p>
+                    <p class="card-text">Estimated Precipitation: ${data.precipitation_sum[i]} mm</p>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
         dayIndex++;
     }
 
@@ -461,28 +461,4 @@ function toggleToContent() {
     document.getElementById("filter").classList.remove("hide");
     document.getElementById("content").classList.remove("hide");
 
-}
-/**
- * Function that show how to get there by public transport, API to SL by trafiklab https://www.trafiklab.se/api/trafiklab-apis/sl/route-planner-31/
- */
-function publicTransport(position) {
-    const API_URL_trip = `https://journeyplanner.integration.sl.se/v1/TravelplannerV3_1/trip.<FORMAT>?key=TRAFIKLAB-SLAPI-INTEGRATION-2024&<parameters>`;
-    const API_URL_journeyDetail = `https://journeyplanner.integration.sl.se/v1/TravelplannerV3_1/journeydetail.<FORMAT>?key=TRAFIKLAB-SLAPI-INTEGRATION-2024&<parameters>`;
-
-    //position.coords.latitude + position.coords.longitude;
-}
-/**
- * Function to check location, taken from w3schools https://www.w3schools.com/htmL/html5_geolocation.asp
- */
-function getLocation() {
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(publicTransport, error);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function error() {
-    alert("Sorry, no position available.");
 }
