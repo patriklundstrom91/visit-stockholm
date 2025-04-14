@@ -218,7 +218,6 @@ function generateCards(items) {
             <div class="map">
             ${item.map}
             </div>
-            <a href="#" class="btn btn-primary">Get there</a>
             </div>
         </div>
         </div>`;
@@ -241,7 +240,6 @@ function generateCards(items) {
                 <div class="map">
                 ${item.map}
                 </div>
-                <a href="#" class="btn btn-primary">Get there</a>
                 </div>
              </div>
            </div>
@@ -285,11 +283,9 @@ document.getElementById("content").addEventListener("click", function(event) {
         if (document.getElementById(id).getAttribute("style") === "display: block;") {
             document.getElementById(`${event.target.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
             $(`#${id}`).toggle("slow");
-            visible = true;
         } else {
             document.getElementById(`${event.target.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
             $(`#${id}`).toggle("slow");
-            visible = false;
         }
     }
 });
