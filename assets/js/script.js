@@ -52,7 +52,7 @@ const spots = [{
         name: 'Gröna Lund',
         img: 'assets/img/grona-lund.jpg',
         alt: 'picture of Grona Lund amusement park',
-        text: `Gröna Lund, or colloquially Grönan, is an amusement park in Stockholm, Sweden. Located on the seaward side of Djurgården Island, it is relatively small compared to other amusement parks, mainly because of its central location, which limits expansion. The 3.8 ha (9.4 acres) amusement park has over 30 attractions and is a popular venue for concerts in the summer. It was founded in 1883 by Jacob Schultheis`,
+        text: `Gröna Lund, or colloquially Grönan, is an amusement park in Stockholm, Sweden. Located on the seaward side of Djurgården Island, it is relatively small compared to other amusement parks, mainly because of its central location, which limits expansion. The 3.8 ha (9.4 acres) amusement park has over 30 attractions and is a popular venue for concerts in the summer. It was founded in 1883 by Jacob Schultheis.`,
         open: 'Mon-Sun 11-22',
         price: 'from 160 SEK for entrance',
         address: 'Lilla Allmänna Gränd 9, Stockholm',
@@ -328,18 +328,18 @@ function generateCards(items) {
     if (width < 768) {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card col-12">
-        <img src="${item.img}" class="card-img-top" alt="${item.alt}">
-        <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
-            <p class="card-text">${item.text}</p>
-            <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
-            <div id="${item.id}" class="hide">
-            <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-            <div class="map">
-            ${item.map}
+            <img src="${item.img}" class="card-img-top" alt="${item.alt}">
+            <div class="card-body">
+                <h5 class="card-title">${item.name}</h5>
+                <p class="card-text">${item.text}</p>
+                <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
+                <div id="${item.id}" class="hide">
+                <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                    <div class="map">
+                    ${item.map}
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>`;
         }
 
@@ -351,48 +351,48 @@ function generateCards(items) {
              <img src="${item.img}" class="img-fluid" alt="${item.alt}">
            </div>
            <div class="col-md-8">
-             <div class="card-body">
-               <h5 class="card-title">${item.name}</h5>
-               <p class="card-text">${item.text}</p>
-               <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
-                <div id="${item.id}" class="hide">
-                <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-                    
-                </div>
-             </div>
-           </div>
-          </div>
-            <div id="${item.mapId}" class="row g-0 hide">
-                <div class="col-12">
-                    <div class="map">
-                        ${item.map}
+                <div class="card-body">
+                    <h5 class="card-title">${item.name}</h5>
+                    <p class="card-text">${item.text}</p>
+                    <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
+                    <div id="${item.id}" class="hide">
+                        <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
                     </div>
                 </div>
             </div>
-        </div>`;
+        </div>
+        <div id="${item.mapId}" class="row g-0 hide">
+            <div class="col-12">
+                <div class="map">
+                    ${item.map}
+                </div>
+            </div>
+        </div>
+    </div>`;
         }
     } else {
         for (let item of items) {
             document.getElementById("content").innerHTML += `<div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4 sideImg">
-            <img src="${item.img}" class="img-fluid" alt="${item.alt}">
-          </div>
-          <div class="col-md-5">
-            <div class="card-body">
-              <h5 class="card-title">${item.name}</h5>
-             <p class="card-text">${item.text}</p>
-             </div>
-             </div>
-             <div class="col-md-3 sideInfo">
-                <div class="card-body">
-                <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-                <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+            <div class="row g-0">
+                <div class="col-md-4 sideImg">
+                    <img src="${item.img}" class="img-fluid" alt="${item.alt}">
                 </div>
-             </div>
-             <div id="${item.id}" class="hide">
-                <div class="map">
-                ${item.map}
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.name}</h5>
+                        <p class="card-text">${item.text}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 sideInfo">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
+                        <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+                    </div>
+                </div>
+                <div id="${item.id}" class="hide">
+                    <div class="map">
+                    ${item.map}
+                    </div>
                 </div>
             </div>
         </div>`;
