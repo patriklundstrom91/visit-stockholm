@@ -194,7 +194,16 @@ h1 {
 }
 
 
-/*Media query large size display 992px up*/
+/*Media query for tablet and up (768px)*/
+
+@media screen and (min-width:768px) {
+    .card-body button {
+        margin-bottom: 16px;
+    }
+}
+
+
+/*Media query large size display and up (992px)*/
 
 @media screen and (min-width:992px) {
     .map {

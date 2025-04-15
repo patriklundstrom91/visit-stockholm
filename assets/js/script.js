@@ -13,7 +13,8 @@ const spots = [{
         familyFriendly: true,
         id: 'royalPalace',
         button: 'royalPalaceBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5745.672261870116!2d18.069149842216365!3d59.326821474718805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d587e4c4a01%3A0xbdf97a9648763e36!2sKungliga%20slottet!5e1!3m2!1ssv!2sse!4v1744190854519!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5745.672261870116!2d18.069149842216365!3d59.326821474718805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d587e4c4a01%3A0xbdf97a9648763e36!2sKungliga%20slottet!5e1!3m2!1ssv!2sse!4v1744190854519!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'royalPalaceMap'
     },
     {
         name: 'City Hall',
@@ -28,7 +29,8 @@ const spots = [{
         familyFriendly: true,
         id: 'cityHall',
         button: 'cityHallBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.5032688650654!2d18.052577613175252!3d59.327826411034714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77df9092cde9%3A0xaeafc90d911394c0!2sStockholms%20stadshus!5e1!3m2!1ssv!2sse!4v1744319207089!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.5032688650654!2d18.052577613175252!3d59.327826411034714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77df9092cde9%3A0xaeafc90d911394c0!2sStockholms%20stadshus!5e1!3m2!1ssv!2sse!4v1744319207089!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'cityHallMap'
     },
     {
         name: 'Royal Opera',
@@ -43,7 +45,8 @@ const spots = [{
         familyFriendly: false,
         id: 'royalOpera',
         button: 'royalOperaBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.3397298585915!2d18.06790261317529!3d59.329734510881984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d592bf2a53d%3A0x5afe7e58cbd3397b!2sKungliga%20Operan!5e1!3m2!1ssv!2sse!4v1744319271875!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.3397298585915!2d18.06790261317529!3d59.329734510881984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d592bf2a53d%3A0x5afe7e58cbd3397b!2sKungliga%20Operan!5e1!3m2!1ssv!2sse!4v1744319271875!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'royalOperaMap'
     },
     {
         name: 'Gröna Lund',
@@ -58,7 +61,8 @@ const spots = [{
         familyFriendly: true,
         id: 'gronaLund',
         button: 'gronaLundBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.8866711394394!2d18.093767183761745!3d59.32335289733475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aac87aa537%3A0xd53ee16e34a5e131!2sGr%C3%B6na%20Lund!5e1!3m2!1ssv!2sse!4v1744319327761!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.8866711394394!2d18.093767183761745!3d59.32335289733475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aac87aa537%3A0xd53ee16e34a5e131!2sGr%C3%B6na%20Lund!5e1!3m2!1ssv!2sse!4v1744319327761!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'gronaLundMap'
     },
     {
         name: 'ABBA the Museum',
@@ -73,7 +77,8 @@ const spots = [{
         familyFriendly: true,
         id: 'abba',
         button: 'abbaBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.7527322652577!2d18.09438551317515!3d59.324915711267614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aad341ff05%3A0x4a15f07835978e47!2sABBA%20The%20Museum!5e1!3m2!1ssv!2sse!4v1744319370002!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.7527322652577!2d18.09438551317515!3d59.324915711267614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aad341ff05%3A0x4a15f07835978e47!2sABBA%20The%20Museum!5e1!3m2!1ssv!2sse!4v1744319370002!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'abbaMap'
     },
     {
         name: 'Old Town',
@@ -88,7 +93,8 @@ const spots = [{
         familyFriendly: true,
         id: 'oldTown',
         button: 'oldTownBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11650.986493754708!2d18.060366881720743!3d59.32498698914416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e2669ff92b%3A0x2600fef435168b11!2sGamla%20stan%2C%20S%C3%B6dermalm%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319411518!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11650.986493754708!2d18.060366881720743!3d59.32498698914416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e2669ff92b%3A0x2600fef435168b11!2sGamla%20stan%2C%20S%C3%B6dermalm%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319411518!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'oldTownMap'
     },
     {
         name: `Haymarket`,
@@ -103,7 +109,8 @@ const spots = [{
         familyFriendly: true,
         id: 'hayMarket',
         button: 'hayMarketBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.903855761831!2d18.059654913175496!3d59.33481991047487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d67674b1659%3A0xe87d05663d192851!2sH%C3%B6torget%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319450160!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.903855761831!2d18.059654913175496!3d59.33481991047487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d67674b1659%3A0xe87d05663d192851!2sH%C3%B6torget%2C%20Stockholm!5e1!3m2!1ssv!2sse!4v1744319450160!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'hayMarketMap'
     },
     {
         name: `Stockholm Metro, Underground Art`,
@@ -118,7 +125,8 @@ const spots = [{
         familyFriendly: true,
         id: 'metro',
         button: 'metroBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.223602432464!2d18.057090313175394!3d59.33108941077355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d60812e6cc7%3A0xbe2201dc8bf32611!2sT-Centralen!5e1!3m2!1ssv!2sse!4v1744319496176!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.223602432464!2d18.057090313175394!3d59.33108941077355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d60812e6cc7%3A0xbe2201dc8bf32611!2sT-Centralen!5e1!3m2!1ssv!2sse!4v1744319496176!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'metroMap'
     },
     {
         name: `Östermalm Food Hall`,
@@ -133,7 +141,8 @@ const spots = [{
         familyFriendly: true,
         id: 'foodHall',
         button: 'foodHallBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.8063822133226!2d18.075108513175643!3d59.335957110383916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5b24096139%3A0x3d784e22bab4355a!2s%C3%96stermalms%20Saluhall!5e1!3m2!1ssv!2sse!4v1744319542256!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.8063822133226!2d18.075108513175643!3d59.335957110383916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5b24096139%3A0x3d784e22bab4355a!2s%C3%96stermalms%20Saluhall!5e1!3m2!1ssv!2sse!4v1744319542256!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'foodHallMap'
     },
     {
         name: `Stockholm City Museum`,
@@ -148,7 +157,8 @@ const spots = [{
         familyFriendly: true,
         id: 'cityMuseum',
         button: 'cityMuseumBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6324.745243095819!2d18.06832371330097!3d59.319697711685215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e4a61197c9%3A0x68648d883aed683d!2sStadsmuseet%20i%20Stockholm!5e1!3m2!1ssv!2sse!4v1744654980766!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6324.745243095819!2d18.06832371330097!3d59.319697711685215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e4a61197c9%3A0x68648d883aed683d!2sStadsmuseet%20i%20Stockholm!5e1!3m2!1ssv!2sse!4v1744654980766!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'cityMuseumMap'
     },
     {
         name: `King's Garden (Kungsträdgården)`,
@@ -163,7 +173,8 @@ const spots = [{
         familyFriendly: true,
         id: 'kingsGarden',
         button: 'kingsGardenBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.308852488446!2d18.066732362944443!3d59.331131745627225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5945458205%3A0x1df0a2acc2aa00fc!2zS3VuZ3N0csOkZGfDpXJkZW4!5e1!3m2!1ssv!2sse!4v1744655469610!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.308852488446!2d18.066732362944443!3d59.331131745627225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5945458205%3A0x1df0a2acc2aa00fc!2zS3VuZ3N0csOkZGfDpXJkZW4!5e1!3m2!1ssv!2sse!4v1744655469610!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'kingsGardenMap'
     },
     {
         name: `Drottningholm Palace`,
@@ -178,7 +189,8 @@ const spots = [{
         familyFriendly: true,
         id: 'drottningholm',
         button: 'drottningholmBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12646.636263926734!2d17.878777333738707!3d59.327367588393884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f75b9dd16af4d%3A0x3996037125378858!2sDrottningholms%20Slott!5e1!3m2!1ssv!2sse!4v1744657477930!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12646.636263926734!2d17.878777333738707!3d59.327367588393884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f75b9dd16af4d%3A0x3996037125378858!2sDrottningholms%20Slott!5e1!3m2!1ssv!2sse!4v1744657477930!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'drottningholmMap'
     },
     {
         name: `Vasa Museum`,
@@ -193,7 +205,8 @@ const spots = [{
         familyFriendly: true,
         id: 'vasa',
         button: 'vasaBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.195615943604!2d18.088816113301295!3d59.32802601101863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d546d8329af%3A0xcff09af1b4c13241!2sVasamuseet!5e1!3m2!1ssv!2sse!4v1744659214504!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.195615943604!2d18.088816113301295!3d59.32802601101863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d546d8329af%3A0xcff09af1b4c13241!2sVasamuseet!5e1!3m2!1ssv!2sse!4v1744659214504!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'vasaMap'
     },
     {
         name: `Nordic Museum`,
@@ -208,7 +221,8 @@ const spots = [{
         familyFriendly: true,
         id: 'nordicMuseum',
         button: 'nordicMuseumBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.5061931514424!2d18.091687713301294!3d59.32901071093975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d538319a8c5%3A0xd78b9c1c85cfa918!2sNordiska%20museet!5e1!3m2!1ssv!2sse!4v1744659950188!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.5061931514424!2d18.091687713301294!3d59.32901071093975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d538319a8c5%3A0xd78b9c1c85cfa918!2sNordiska%20museet!5e1!3m2!1ssv!2sse!4v1744659950188!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'nordicMuseumMap'
     },
     {
         name: `Skansen Open-air Museum`,
@@ -223,7 +237,8 @@ const spots = [{
         familyFriendly: true,
         id: 'skansen',
         button: 'skansenBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.512053433474!2d18.10327791330111!3d59.326325411154784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aafeda9437%3A0x2c35b6cfd6468531!2sSkansen!5e1!3m2!1ssv!2sse!4v1744661687119!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6323.512053433474!2d18.10327791330111!3d59.326325411154784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f82aafeda9437%3A0x2c35b6cfd6468531!2sSkansen!5e1!3m2!1ssv!2sse!4v1744661687119!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'skansenMap'
     },
     {
         name: `Vaxholm`,
@@ -238,7 +253,8 @@ const spots = [{
         familyFriendly: true,
         id: 'vaxholm',
         button: 'vaxholmBtn',
-        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21220.54780683792!2d18.32550425450693!3d59.40478691034756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465ef319667a1fc1%3A0xca12483bf0358351!2sVaxholm!5e1!3m2!1ssv!2sse!4v1744662406412!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        map: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21220.54780683792!2d18.32550425450693!3d59.40478691034756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465ef319667a1fc1%3A0xca12483bf0358351!2sVaxholm!5e1!3m2!1ssv!2sse!4v1744662406412!5m2!1ssv!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapId: 'vaxholmMap'
     }
 ];
 //Array with weekdays, 2 weeks so it can rotate 1 week ahead of today
@@ -316,7 +332,7 @@ function generateCards(items) {
         <div class="card-body">
             <h5 class="card-title">${item.name}</h5>
             <p class="card-text">${item.text}</p>
-            <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+            <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
             <div id="${item.id}" class="hide">
             <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
             <div class="map">
@@ -338,16 +354,21 @@ function generateCards(items) {
              <div class="card-body">
                <h5 class="card-title">${item.name}</h5>
                <p class="card-text">${item.text}</p>
-               <button id="${item.button}">Show more <i class="fa-solid fa-angle-down"></i></button>
+               <button id="${item.button}" class="float-end">Show more <i class="fa-solid fa-angle-down"></i></button>
                 <div id="${item.id}" class="hide">
                 <p class="card-text"><small class="text-body-secondary">Opening hours: ${item.open}<br>Price: ${item.price}<br>Address: ${item.address}</small></p>
-                <div class="map">
-                ${item.map}
-                </div>
+                    
                 </div>
              </div>
            </div>
           </div>
+            <div id="${item.mapId}" class="row g-0 hide">
+                <div class="col-12">
+                    <div class="map">
+                        ${item.map}
+                    </div>
+                </div>
+            </div>
         </div>`;
         }
     } else {
@@ -387,9 +408,11 @@ document.getElementById("content").addEventListener("click", function(event) {
         if (document.getElementById(id).getAttribute("style") === "display: block;") {
             document.getElementById(`${event.target.id}`).innerHTML = `Show more <i class="fa-solid fa-angle-down"></i>`;
             $(`#${id}`).toggle("slow");
+            $(`#${id}Map`).toggle("slow");
         } else {
             document.getElementById(`${event.target.id}`).innerHTML = `Show less <i class="fa-solid fa-angle-up"></i>`;
             $(`#${id}`).toggle("slow");
+            $(`#${id}Map`).toggle("slow");
         }
     }
 });
